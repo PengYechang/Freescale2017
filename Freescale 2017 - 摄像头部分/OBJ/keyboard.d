@@ -1,0 +1,15 @@
+..\obj\keyboard.o: ..\SRC\HARDWARE\KEYBOARD\keyboard.c
+..\obj\keyboard.o: ..\SRC\HARDWARE\KEYBOARD\keyboard.h
+..\obj\keyboard.o: ..\SRC\FWLIB\GPIO\gpio.h
+..\obj\keyboard.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\keyboard.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\keyboard.o: ..\SRC\HARDWARE\LEDBUZ\LedBuz.h
+..\obj\keyboard.o: ..\SRC\FWLIB\RTC\rtc.h
+..\obj\keyboard.o: ..\SRC\FWLIB\COMMON\common.h
+..\obj\keyboard.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\keyboard.o: ..\SRC\STARTUP\DeviceSupport\MK60D10.h
+..\obj\keyboard.o: ..\SRC\STARTUP\CoreSupport\core_cm4.h
+..\obj\keyboard.o: ..\SRC\STARTUP\CoreSupport\core_cmInstr.h
+..\obj\keyboard.o: ..\SRC\STARTUP\CoreSupport\core_cmFunc.h
+..\obj\keyboard.o: ..\SRC\STARTUP\CoreSupport\core_cm4_simd.h
+..\obj\keyboard.o: ..\SRC\STARTUP\DeviceSupport\system_MK60D10.h

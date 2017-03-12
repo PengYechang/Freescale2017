@@ -1,0 +1,13 @@
+..\obj\lptmr.o: ..\SRC\FWLIB\LPTMR\lptmr.c
+..\obj\lptmr.o: ..\SRC\FWLIB\COMMON\common.h
+..\obj\lptmr.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\lptmr.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\lptmr.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\lptmr.o: ..\SRC\STARTUP\DeviceSupport\MK60D10.h
+..\obj\lptmr.o: ..\SRC\STARTUP\CoreSupport\core_cm4.h
+..\obj\lptmr.o: ..\SRC\STARTUP\CoreSupport\core_cmInstr.h
+..\obj\lptmr.o: ..\SRC\STARTUP\CoreSupport\core_cmFunc.h
+..\obj\lptmr.o: ..\SRC\STARTUP\CoreSupport\core_cm4_simd.h
+..\obj\lptmr.o: ..\SRC\STARTUP\DeviceSupport\system_MK60D10.h
+..\obj\lptmr.o: ..\SRC\FWLIB\LPTMR\lptmr.h
+..\obj\lptmr.o: ..\SRC\FWLIB\GPIO\gpio.h

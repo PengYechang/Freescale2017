@@ -1,0 +1,14 @@
+..\obj\ledbuz.o: ..\SRC\HARDWARE\LEDBUZ\LedBuz.c
+..\obj\ledbuz.o: ..\SRC\HARDWARE\LEDBUZ\LedBuz.h
+..\obj\ledbuz.o: ..\SRC\FWLIB\GPIO\gpio.h
+..\obj\ledbuz.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\ledbuz.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\ledbuz.o: ..\SRC\FWLIB\RTC\rtc.h
+..\obj\ledbuz.o: ..\SRC\FWLIB\COMMON\common.h
+..\obj\ledbuz.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\ledbuz.o: ..\SRC\STARTUP\DeviceSupport\MK60D10.h
+..\obj\ledbuz.o: ..\SRC\STARTUP\CoreSupport\core_cm4.h
+..\obj\ledbuz.o: ..\SRC\STARTUP\CoreSupport\core_cmInstr.h
+..\obj\ledbuz.o: ..\SRC\STARTUP\CoreSupport\core_cmFunc.h
+..\obj\ledbuz.o: ..\SRC\STARTUP\CoreSupport\core_cm4_simd.h
+..\obj\ledbuz.o: ..\SRC\STARTUP\DeviceSupport\system_MK60D10.h

@@ -1,0 +1,13 @@
+..\obj\nrf24l01.o: ..\SRC\HARDWARE\NRF24L01\NRF24L01.c
+..\obj\nrf24l01.o: ..\SRC\HARDWARE\NRF24L01\NRF24L01.h
+..\obj\nrf24l01.o: ..\SRC\FWLIB\GPIO\gpio.h
+..\obj\nrf24l01.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\nrf24l01.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\nrf24l01.o: ..\SRC\FWLIB\COMMON\common.h
+..\obj\nrf24l01.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\nrf24l01.o: ..\SRC\STARTUP\DeviceSupport\MK60D10.h
+..\obj\nrf24l01.o: ..\SRC\STARTUP\CoreSupport\core_cm4.h
+..\obj\nrf24l01.o: ..\SRC\STARTUP\CoreSupport\core_cmInstr.h
+..\obj\nrf24l01.o: ..\SRC\STARTUP\CoreSupport\core_cmFunc.h
+..\obj\nrf24l01.o: ..\SRC\STARTUP\CoreSupport\core_cm4_simd.h
+..\obj\nrf24l01.o: ..\SRC\STARTUP\DeviceSupport\system_MK60D10.h

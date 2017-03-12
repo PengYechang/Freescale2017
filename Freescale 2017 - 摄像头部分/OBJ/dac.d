@@ -1,0 +1,12 @@
+..\obj\dac.o: ..\SRC\FWLIB\DAC\dac.c
+..\obj\dac.o: ..\SRC\FWLIB\DAC\dac.h
+..\obj\dac.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+..\obj\dac.o: ..\SRC\FWLIB\COMMON\common.h
+..\obj\dac.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdbool.h
+..\obj\dac.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+..\obj\dac.o: ..\SRC\STARTUP\DeviceSupport\MK60D10.h
+..\obj\dac.o: ..\SRC\STARTUP\CoreSupport\core_cm4.h
+..\obj\dac.o: ..\SRC\STARTUP\CoreSupport\core_cmInstr.h
+..\obj\dac.o: ..\SRC\STARTUP\CoreSupport\core_cmFunc.h
+..\obj\dac.o: ..\SRC\STARTUP\CoreSupport\core_cm4_simd.h
+..\obj\dac.o: ..\SRC\STARTUP\DeviceSupport\system_MK60D10.h
