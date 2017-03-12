@@ -2,16 +2,25 @@
 #include "camera.h"
 
 #define IMG_CENTER	(Image_Width/2)
+/* ¶æ»ú×ÊÁÏ
+????: CW pulse ?(1500 ? 900 [us])
+CCW pulse ?(1500? 2100 [us])
+?????:= 5°
+????: 4.0 ~ 6.0 [V]
+????: -10 ~ + 50[?]
+
+*/
 
 uint8_t Shift = 3;
-uint32_t Servo_Error  = 250;       //¶æ»úÆ«²î
-uint32_t Servo_Middle = 750;		  					//¶æ»úÖÐ¼ä
-uint32_t Servo_Left   = 1000; 	    //¶æ»úÓÒ¹Õµ½µ×
-uint32_t Servo_Right  = 500;		//¶æ»ú×ó¹Õµ½µ×
+uint32_t Servo_Error  = 100;       //¶æ»úÆ«²î
+uint32_t Servo_Middle = 430;		  					//¶æ»úÖÐ¼ä
+uint32_t Servo_Left   = 530; 	    //¶æ»úÓÒ¹Õµ½µ×
+uint32_t Servo_Right  = 330;		//¶æ»ú×ó¹Õµ½µ×
 
 int16_t Car_servo_PWM;
 int16_t Car_centerLine;
-int16_t calculateTurnAngle(int16_t *centerLine)
+
+void calculateTurnAngle(int16_t *centerLine)
 {
 	int16_t angle = Servo_Middle;
 	int16_t startCount = centerLine[Image_Height-1];
@@ -57,25 +66,25 @@ int16_t calculateTurnAngle(int16_t *centerLine)
 		
 		pointX = (int16_t)((0-parameterB/parameterK) + 0.5);
 		
-		if(pointX < 0)
+		if(pointX < 0)     //Òª×ó¹ÕºÜ´óµÄ½Ç¶È
 		{
 			//pointY = (int16_t)parameterB;
 			//angle = (Servo_Middle+IMG_CENTER)+pointY*3;
-			angle = Servo_Middle + 20;
+			angle = Servo_Middle + 20;              //×¢Òâ£¡£¡£¡£¡£¡£¡20Òª¸Ä°¡£¡£¡£¡£¡
 		}
-		else if(pointX > Image_Width-1)
+		else if(pointX > Image_Width-1)   //ÒªÓÒ¹ÕºÜ´óµÄ½Ç¶È
 		{
 			//pointY = (int16_t)((Image_Width-1)*parameterK+parameterB+0.5);
 			//angle = (Servo_Middle-IMG_CENTER)-pointY*3;
-			angle = Servo_Middle - 20;
+			angle = Servo_Middle - 20;				//×¢Òâ£¡£¡£¡£¡£¡£¡20Òª¸Ä°¡£¡£¡£¡£¡
 		}
 		else
 			// angle = Servo_Middle-(pointX-IMG_CENTER);
-			angle = (int16_t)((Servo_Middle - (pointX-IMG_CENTER)/2) + 0.5);
+			angle = (int16_t)((Servo_Middle - (pointX-IMG_CENTER)/2) + 0.5);     //Òª¸ù¾ÝÊµ¼ÊÇé¿ö¸Ä
 	}
 
 	
-	angle -= ((centerLine[Image_Height-1] - IMG_CENTER) * 3); 	
+	angle -= ((centerLine[Image_Height-1] - IMG_CENTER) * 3); 	  //Ò»¿ªÊ¼µÄ²¹³¥½Ç  £¡£¡£¡¡¢¸Ä
 	Car_servo_PWM = calculatePidAngle(angle);
 	
 	
@@ -92,7 +101,7 @@ int16_t calculateTurnAngle(int16_t *centerLine)
 	else if(Car_centerLine < -10)
 		Car_centerLine = -10;
 	
-	return Car_servo_PWM;
+	FTM_PWM_ChangeDuty(HW_FTM0,HW_FTM_CH3,Car_servo_PWM);	  //ÉèÖÃ¶æ»úµÄÖµ
 }
 
 
@@ -114,22 +123,22 @@ typedef struct
 static anglePID anglePid;
 static anglePidParams angleParams;
 
-void servoPidInit(float _proportion, float _integral, float _derviative)
+void servoPidInit()
 {
 	anglePid.preOneDeviation = 0;
 	anglePid.preTwoDeviation = 0;
 	anglePid.pidAngle = 0;
 	
-	angleParams.proportion = _proportion;
-	angleParams.integral = _integral;
-	angleParams.derviative = _derviative;
+	angleParams.proportion = 0;
+	angleParams.integral = 0;
+	angleParams.derviative = 0;
 }
 
-void updateServoPid(float _proportion, float _integral, float _derviative)
+void updateServoPid()
 {
-	angleParams.proportion = _proportion;
-	angleParams.integral = _integral;
-	angleParams.derviative = _derviative;
+	angleParams.proportion = 0;
+	angleParams.integral = 0;
+	angleParams.derviative = 0;
 }
 
 int16_t calculatePidAngle(int16_t purpostAngle)
@@ -163,7 +172,7 @@ int16_t calculatePidAngle(int16_t purpostAngle)
 void Servo_Init(void)
 {
 	//C³µ¶æ»ú  50Hz    B³µ¶æ»ú  300Hz
-	FTM_PWM_QuickInit(FTM0_CH3_PC04,kPWM_EdgeAligned,50);    //FTM2  Í¨µÀ0  PB18  ±ßÑØ¶ÔÆëÄ£Ê½   50Hz
+	FTM_PWM_QuickInit(FTM0_CH3_PC04,kPWM_EdgeAligned,300);    //FTM2  Í¨µÀ0  PB18  ±ßÑØ¶ÔÆëÄ£Ê½   50Hz
 	FTM_PWM_ChangeDuty(HW_FTM0,HW_FTM_CH3,Servo_Middle);	  //Ê×ÏÈ¶æ»ú°Úµ½ÖÐ¼ä
 	
 	Servo_Left = Servo_Middle + Servo_Error;				  //¶æ»úÓÒ¹Õµ½µ×

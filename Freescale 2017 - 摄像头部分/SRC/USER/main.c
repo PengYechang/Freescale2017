@@ -7,12 +7,13 @@
 #include "rtc.h"
 #include "wdog.h"
 #include "usart.h"
+#include "image_control.h"
 
 /* 修改主频 请使用 CMSIS标准文件 system_MKxxxx.c 中的 CLOCK_SETUP 宏 */
 
 void SysInitialization(void);			//系统初始化
 
-unsigned char ImageData[128];
+int16_t *center;	
 
 int main(void)
 {
@@ -31,7 +32,10 @@ int main(void)
 		DelayMs(10);
 		if(ImgOK == true)
 		{
-			sendCamImgToCamViewer();
+//			sendCamImgToCamViewer();
+			Image_Deal = Image_Buff1;
+			center = findCenterLine(Image_Deal);
+			calculateTurnAngle(center);
 			ImgDealOK = true;
 		}
 	}
@@ -43,6 +47,7 @@ void SysInitialization(void)
 	DisableInterrupts();      			//禁止全部中断
 	DelayInit();              			//延时函数初始化，使用的是DWT
 	Servo_Init();                       //舵机初始化
+	servoPidInit();                     //PID初始化
 	FreeCars_Init();          			//FreeCars上位机UART引脚配置
 	Camera_Init();			  			//摄像头引脚配置
 	ISR_Config();			  			//所有中断的配置，该函数应放在所有初始化函数之后

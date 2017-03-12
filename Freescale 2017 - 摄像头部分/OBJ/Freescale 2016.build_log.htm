@@ -26,11 +26,26 @@ Project File Date:  03/12/2017
 
 <h2>Output:</h2>
 Build target 'MK60DN'
-compiling servo.c...
+compiling main.c...
+..\SRC\HARDWARE\SERVO\servo.h(8): warning:  #1295-D: Deprecated declaration servoPidInit - give arg types
+  void servoPidInit();
+..\SRC\HARDWARE\SERVO\servo.h(9): warning:  #1295-D: Deprecated declaration updateServoPid - give arg types
+  void updateServoPid();
+..\SRC\HARDWARE\USART\usart.h(9): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\SRC\HARDWARE\IMAGEDEAL\image_control.h(17): warning:  #1-D: last line of file ends without a newline
+  #endif
+..\SRC\USER\main.c(20): warning:  #177-D: variable "ImgDealTimes" was declared but never referenced
+        uint8_t ImgDealTimes = 0;                       //1s内的图像处理次数
+..\SRC\USER\main.c(21): warning:  #177-D: variable "StartTime" was declared but never referenced
+        uint32_t StartTime = 0;             //主程序开始时的时间
+..\SRC\USER\main.c(22): warning:  #177-D: variable "EndTime" was declared but never referenced
+        uint32_t EndTime = 0;                           //主程序结束时的时间
+..\SRC\USER\main.c: 7 warnings, 0 errors
 linking...
-Program Size: Code=22800 RO-data=1628 RW-data=184 ZI-data=38680  
+Program Size: Code=26392 RO-data=1628 RW-data=196 ZI-data=39636  
 FromELF: creating hex file...
-"..\OBJ\Freescale 2016.axf" - 0 Error(s), 0 Warning(s).
+"..\OBJ\Freescale 2016.axf" - 0 Error(s), 7 Warning(s).
 
 <h2>Collection of Component include folders:</h2>
   C:\Users\User\Documents\飞思卡尔比赛\2017飞思卡尔\Freescale 2017 - 摄像头部分\PRJ\RTE

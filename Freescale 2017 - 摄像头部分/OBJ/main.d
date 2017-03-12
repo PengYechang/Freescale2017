@@ -54,3 +54,4 @@
 ..\obj\main.o: ..\SRC\HARDWARE\STARTLINE\startLine.h
 ..\obj\main.o: ..\SRC\HARDWARE\BOMASWITCH\BomaSwitch.h
 ..\obj\main.o: ..\SRC\HARDWARE\USART\usart.h
+..\obj\main.o: ..\SRC\HARDWARE\IMAGEDEAL\image_control.h
